@@ -12,6 +12,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
     private String description;
     private double price;
     private String EAN13;
@@ -49,5 +50,13 @@ public class Product {
 
     public void setEAN13(String EAN13) {
         this.EAN13 = EAN13;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
