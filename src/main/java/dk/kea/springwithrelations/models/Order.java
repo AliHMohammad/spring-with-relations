@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "\"order\"")
@@ -20,7 +21,7 @@ public class Order {
     @OneToMany(
             cascade = CascadeType.ALL  // Gør at du kan create en Order samt ny Orderline tilknyttet et eksisterende produkt
     )
-    private List<OrderLine> orderLines;
+    private Set<OrderLine> orderLines;
 
 
     public Long getId() {
@@ -47,11 +48,11 @@ public class Order {
         this.confirmed = confirmed;
     }
 
-    public List<OrderLine> getOrderLines() {
+    public Set<OrderLine> getOrderLines() {
         return orderLines;
     }
 
-    public void setOrderLines(List<OrderLine> orderLines) {
+    public void setOrderLines(Set<OrderLine> orderLines) {
         this.orderLines = orderLines;
     }
 }
