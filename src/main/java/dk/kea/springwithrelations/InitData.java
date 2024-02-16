@@ -1,21 +1,28 @@
 package dk.kea.springwithrelations;
 
+import dk.kea.springwithrelations.models.Order;
 import dk.kea.springwithrelations.models.OrderLine;
 import dk.kea.springwithrelations.models.Product;
 import dk.kea.springwithrelations.repositories.OrderLineRepository;
+import dk.kea.springwithrelations.repositories.OrderRepository;
 import dk.kea.springwithrelations.repositories.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Component
 public class InitData implements CommandLineRunner {
 
     private ProductRepository productRepository;
     private OrderLineRepository orderLineRepository;
+    private OrderRepository orderRepository;
 
-    public InitData(ProductRepository productRepository, OrderLineRepository orderLineRepository) {
+    public InitData(ProductRepository productRepository, OrderLineRepository orderLineRepository, OrderRepository orderRepository) {
         this.productRepository = productRepository;
         this.orderLineRepository = orderLineRepository;
+        this.orderRepository = orderRepository;
     }
 
     @Override
@@ -48,5 +55,7 @@ public class InitData implements CommandLineRunner {
         line2.setProduct(product2);
 
         orderLineRepository.save(line2);
+
+
     }
 }
